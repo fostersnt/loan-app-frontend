@@ -22,6 +22,11 @@ export default function RootLayout() {
           name="screens/swiper"
           options={{ title: "", headerShown: false }}
         />
+        <Stack.Screen
+          name="screens/login"
+          options={{ title: "", headerShown: false }}
+        />
       </Stack>
+      
   );
 }

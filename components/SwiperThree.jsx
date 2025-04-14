@@ -2,12 +2,18 @@ import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from "rea
 import React, { useEffect, useState } from "react";
 import img from "../assets/images/swiper_three_image.png";
 import appColors from "@/utils/appColors";
+import { useNavigation } from "expo-router";
 
 export default function SliderOne() {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
   
   const font_size = screenWidth / 10;
+  const navigate = useNavigation();
+
+  const btnOnclick = () => {
+    navigate.navigate("screens/login");
+  }
 
   return (
     <View style={styles.main_container}>
@@ -23,7 +29,9 @@ export default function SliderOne() {
         </Text>
       </View>
       <View style={styles.container_3}>
-        <TouchableOpacity>
+        <TouchableOpacity
+        onPress={btnOnclick}
+        >
           <Text style={styles.btnText}>Get Started</Text>
         </TouchableOpacity>
       </View>

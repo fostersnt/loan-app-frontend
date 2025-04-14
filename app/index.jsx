@@ -15,7 +15,7 @@ export default function Index() {
     setTimeout(()=>{
       console.log("HELLO WORLD");
       navigate.navigate('screens/swiper');
-    }, 3000)
+    }, 3000) 
   }, [])
 
   return (
