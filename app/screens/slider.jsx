@@ -1,10 +1,21 @@
+import appColors from '@/utils/appColors'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Swiper from 'react-native-swiper'
 
 export default function Slider() {
     return (
-      <Swiper style={styles.wrapper} showsButtons={false} loop={false} index={0}>
+      <Swiper
+      style={styles.wrapper}
+      showsButtons={false}
+      loop={false} index={0}
+      dot={
+        <View style={styles.dotStyle}/>
+      }
+      activeDot={
+        <View style={styles.activeDotStyle}/>
+      }
+      >
         <View style={styles.slide1}>
           <Text style={styles.text}>Hello Swiper</Text>
         </View>
@@ -42,5 +53,19 @@ const styles = StyleSheet.create({
       color: '#fff',
       fontSize: 30,
       fontWeight: 'bold'
+    },
+    dotStyle:{
+        backgroundColor: appColors.white,
+        width: 10,
+        height: 10,
+        borderRadius: 20,
+        margin: 5,
+    },
+    activeDotStyle:{
+        backgroundColor: appColors.orange_two,
+        width: 10,
+        height: 10,
+        borderRadius: 20,
+        margin: 5,
     }
   })
