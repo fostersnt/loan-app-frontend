@@ -1,17 +1,21 @@
 import appColors from '@/utils/appColors';
+import { useNavigation } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
 export default function PhoneLoginScreen() {
   const [phoneNumber, setPhoneNumber] = useState('');
+  const navigate = useNavigation();
 
   const handleLogin = () => {
     if (phoneNumber.trim().length === 0) {
       alert('Please enter your phone number');
       return;
     }
+
+    navigate.navigate("screens/otp_verify");
     // You can add phone number validation here too
-    alert(`Logging in with ${phoneNumber}`);
+    // alert(`Logging in with ${phoneNumber}`);
   };
 
   return (

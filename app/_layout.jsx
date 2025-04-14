@@ -26,6 +26,10 @@ export default function RootLayout() {
           name="screens/login"
           options={{ title: "", headerShown: false }}
         />
+        <Stack.Screen
+          name="screens/otp_verify"
+          options={{ title: "", headerShown: false }}
+        />
       </Stack>
       
   );
