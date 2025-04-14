@@ -13,7 +13,7 @@ export default function RootLayout() {
     }} >
     <Stack.Screen name="index" options={{ title: "", headerShown: false }}/>
     <Stack.Screen name="screens/home"/>
-    <Stack.Screen name="screens/slider"/>
+    <Stack.Screen name="screens/slider" options={{ title: "", headerShown: false }}/>
     </Stack>
   )
 }
