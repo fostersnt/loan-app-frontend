@@ -7,7 +7,7 @@ export default function SliderOne() {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
   
-  const font_size = screenWidth / 10;
+  const font_size = screenWidth / 12;
 
   return (
     <View style={styles.main_container}>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   textStyle_1: {
     fontSize: 20,
-    color: appColors.dark_one,
+    color: appColors.green_one,
     textAlign: "center",
     // fontWeight: "bold",
     // color: appColors.orange_two
