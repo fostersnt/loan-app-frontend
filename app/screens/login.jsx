@@ -1,3 +1,4 @@
+import appColors from '@/utils/appColors';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
@@ -46,7 +47,8 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#6200ee',
+    // color: '#6200ee',
+    color: appColors.orange_two,
     marginBottom: 10,
   },
   subtitle: {
@@ -65,7 +67,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: '#6200ee',
+    backgroundColor: appColors.orange_two,
+    // backgroundColor: '#6200ee',
     paddingVertical: 15,
     borderRadius: 10,
   },
