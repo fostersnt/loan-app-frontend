@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-around",
     padding: 10,
-    // backgroundColor: appColors.white,
-    backgroundColor: "#f0f0f0"
+    backgroundColor: appColors.white,
+    // backgroundColor: "#f0f0f0"
   },
   container_1: {
     width: "100%",
