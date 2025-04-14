@@ -17,7 +17,6 @@ export default function RootLayout() {
           name="index"
           options={{ title: "", headerShown: false }}
         />
-        <Stack.Screen name="screens/home" />
         <Stack.Screen
           name="screens/swiper"
           options={{ title: "", headerShown: false }}

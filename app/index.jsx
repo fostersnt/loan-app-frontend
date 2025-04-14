@@ -1,32 +1,55 @@
 import appColors from "@/utils/appColors";
 import { Image, StatusBar, StyleSheet, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import {Video} from "expo-av";
+import { Video } from "expo-av";
 import bankNote from "../assets/images/Banknote.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigation } from "expo-router";
 // const moneyMotivation = require ("../assets/images/Money_motivation.mp4");
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Crypto from "expo-crypto";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Index() {
-
   const navigate = useNavigation();
+  const [deviceId, setDeviceId] = useState(null);
 
-  useEffect(()=>{
-    setTimeout(()=>{
+  useEffect(() => {
+    async function getOrCreateDeviceId() {
+      try {
+        let Id = await AsyncStorage.getItem("deviceId");
+        if (!Id) {
+          const randomBytes = await Crypto.getRandomBytesAsync(16);
+          Id = uuidv4({ random: Array.from(randomBytes) });
+          await AsyncStorage.setItem("deviceId", Id);
+        }
+        setDeviceId(Id);
+        console.log("DEVICE ID === ", Id);
+      } catch (err) {
+        console.log("ERROR MESSAGE === ", err);
+      }
+    } 
+
+    getOrCreateDeviceId();
+
+    setTimeout(() => {
       console.log("HELLO WORLD");
-      navigate.navigate('screens/swiper');
-    }, 3000) 
-  }, [])
+      if (deviceId == null) {
+        navigate.navigate("screens/swiper");
+      } else {
+        navigate.navigate("screens/login");
+      }
+    }, 3000);
+  }, []);
 
   return (
     <View style={styles.mainContainer}>
       <StatusBar hidden />
       {/* <Icon name="money" size={150} color={appColors.white} /> */}
-      <Image source={bankNote} style={styles.splashImageStyle}/>
+      <Image source={bankNote} style={styles.splashImageStyle} />
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   mainContainer: {
