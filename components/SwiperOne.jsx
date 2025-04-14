@@ -1,9 +1,10 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img from "../assets/images/swiper_one_image.png";
 import appColors from '@/utils/appColors';
 
 export default function SliderOne() {
+  
   return (
     <View style={styles.main_container}>
       <View>
