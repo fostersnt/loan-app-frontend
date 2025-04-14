@@ -1,10 +1,12 @@
 import appColors from '@/utils/appColors';
+import { useNavigation } from 'expo-router';
 import React, { useRef, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
 export default function OtpVerificationScreen() {
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputs = useRef([]);
+  const navigate = useNavigation();
 
   const handleChange = (text, index) => {
     if (/^\d$/.test(text)) {
@@ -30,7 +32,8 @@ export default function OtpVerificationScreen() {
   const handleVerify = () => {
     const code = otp.join('');
     if (code.length === 4) {
-      alert(`OTP Verified: ${code}`);
+      // alert(`OTP Verified: ${code}`);
+      navigate.navigate("screens/home");
     } else {
       alert('Please enter the complete OTP');
     }
