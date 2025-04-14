@@ -11,7 +11,6 @@ export default function OtpVerificationScreen() {
       const newOtp = [...otp];
       newOtp[index] = text;
       setOtp(newOtp);
-      // Move to next input if exists
       if (index < 3) {
         inputs.current[index + 1].focus();
       }
@@ -35,6 +34,11 @@ export default function OtpVerificationScreen() {
     } else {
       alert('Please enter the complete OTP');
     }
+  };
+
+  const handleResend = () => {
+    alert('OTP has been resent!');
+    // Here you'd trigger your resend API
   };
 
   return (
@@ -61,6 +65,10 @@ export default function OtpVerificationScreen() {
       <TouchableOpacity style={styles.button} onPress={handleVerify}>
         <Text style={styles.buttonText}>Verify</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity onPress={handleResend}>
+        <Text style={styles.resendText}>Resend Code</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -76,7 +84,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
-    // color: '#6200ee',
     color: appColors.orange_two,
     marginBottom: 10,
   },
@@ -94,7 +101,6 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: appColors.orange_two,
-    // borderColor: '#ddd',
     padding: 15,
     borderRadius: 10,
     textAlign: 'center',
@@ -104,14 +110,21 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: appColors.orange_two,
-    // backgroundColor: '#6200ee',
     paddingVertical: 15,
     borderRadius: 10,
+    marginBottom: 20,
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
     textAlign: 'center',
     fontWeight: 'bold',
+  },
+  resendText: {
+    textAlign: 'center',
+    color: appColors.orange_two,
+    fontSize: 16,
+    fontWeight: '500',
+    textDecorationLine: 'underline',
   },
 });
