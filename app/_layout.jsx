@@ -19,7 +19,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="screens/home" />
         <Stack.Screen
-          name="screens/slider"
+          name="screens/swiper"
           options={{ title: "", headerShown: false }}
         />
       </Stack>

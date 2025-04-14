@@ -14,7 +14,7 @@ export default function Index() {
   useEffect(()=>{
     setTimeout(()=>{
       console.log("HELLO WORLD");
-      navigate.navigate('screens/slider');
+      navigate.navigate('screens/swiper');
     }, 3000)
   }, [])
 
