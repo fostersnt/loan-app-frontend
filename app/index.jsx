@@ -1,7 +1,6 @@
 import appColors from "@/utils/appColors";
-import { Link } from "expo-router";
-import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
-import splashImage from "../assets/images/splash_image.png";
+import { StatusBar, StyleSheet, View } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Index() {
   return (
@@ -9,9 +8,7 @@ export default function Index() {
       style={styles.mainContainer}
     >
       <StatusBar hidden/>
-      {/* <Text style={styles.textStyle}>Edit app/index.tsx to edit this screen.</Text> */}
-      <Image source={splashImage} style={styles.splashImageStyle}/>
-      <Link style={styles.textStyle} href="home">Go To Home Page</Link>
+      <Icon name="money" size={150} color={appColors.white} />
     </View>
   );
 }
