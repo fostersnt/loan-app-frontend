@@ -1,6 +1,6 @@
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
-import img from "../assets/images/swiper_two_image.png";
+import img from "../assets/images/swiper_three_image.png";
 import appColors from "@/utils/appColors";
 
 export default function SliderOne() {
@@ -14,13 +14,18 @@ export default function SliderOne() {
       <View style={styles.container_1}>
         <Text style={styles.textStyle}>Flexible repayment plan</Text>
       </View>
-      {/* <View> */}
-      <Image style={styles.img} source={img} />
-      {/* </View> */}
-      <View style={styles.container_1}>
+      <View style={styles.container_2}>
         <Text style={styles.textStyle}>
         With LoanGH, enjoy flexible repayment options tailored to bring you peace of mind.
         </Text>
+      </View>
+      {/* <View> */}
+      <Image style={styles.img} source={img} />
+      {/* </View> */}
+      <View style={styles.container_3}>
+        <TouchableOpacity>
+          <Text style={styles.btnText}>Get Started</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -41,6 +46,16 @@ const styles = StyleSheet.create({
   container_2: {
     width: "100%",
     alignItems: "center",
+  },
+  container_3: {
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: appColors.orange_two,
+    paddingVertical: 10
+  },
+  btnText:{
+    color: appColors.white,
+    fontSize: 20
   },
   img: {
     width: "100%",

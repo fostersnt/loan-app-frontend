@@ -6,20 +6,20 @@ import appColors from "@/utils/appColors";
 export default function SliderOne() {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
-  console.log("WIDTH: ", screenWidth);
-  console.log("HEIGHT: ", screenHeight);
+  
+  const font_size = screenWidth / 10;
 
   return (
     <View style={styles.main_container}>
       <View style={styles.container_1}>
-        <Text style={styles.textStyle}>Apply for loans easily</Text>
+        <Text style={[styles.textStyle_1, {fontSize: font_size}]}>Fast & Secure Approval</Text>
       </View>
       {/* <View> */}
       <Image style={styles.img} source={img} />
       {/* </View> */}
       <View style={styles.container_1}>
-        <Text style={styles.textStyle}>
-          Choose a loan that meet your needs and apply with our simple step
+        <Text style={styles.textStyle_2}>
+        Your loan application is processed swiftly and securely. Get fast approval and know the status of your loan application within moments.
         </Text>
       </View>
     </View>
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   container_1: {
     width: "100%",
     alignItems: "center",
+    justifyContent: "center"
   },
   container_2: {
     width: "100%",
@@ -46,9 +47,16 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "50%",
   },
-  textStyle: {
+  textStyle_1: {
+    // fontSize: 40,
+    // fontWeight: "bold",
+    textAlign: "center",
+    color: appColors.dark_one
+  },
+  textStyle_2: {
     fontSize: 20,
     // fontWeight: "bold",
-    // color: "appColors.orange_two"
+    textAlign: "center",
+    color: appColors.dark_one
   },
 });

@@ -6,19 +6,19 @@ import appColors from "@/utils/appColors";
 export default function SliderOne() {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
-  console.log("WIDTH: ", screenWidth);
-  console.log("HEIGHT: ", screenHeight);
+  
+  const font_size = screenWidth / 10;
 
   return (
     <View style={styles.main_container}>
       <View style={styles.container_1}>
-        <Text style={styles.textStyle}>Low interest rate</Text>
+        <Text style={[styles.textStyle_1, {fontSize: font_size}]}>Low interest rate</Text>
       </View>
       {/* <View> */}
       <Image style={styles.img} source={img} />
       {/* </View> */}
       <View style={styles.container_2}>
-        <Text style={styles.textStyle}>
+        <Text style={styles.textStyle_2}>
           We don't just provide you with a loan. We ensure the loan is flexible.
         </Text>
       </View>
@@ -48,8 +48,17 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "50%",
   },
-  textStyle: {
+  textStyle_1: {
     fontSize: 20,
+    color: appColors.dark_one,
+    textAlign: "center",
+    // fontWeight: "bold",
+    // color: appColors.orange_two
+  },
+  textStyle_2: {
+    fontSize: 20,
+    color: appColors.dark_one,
+    textAlign: "center",
     // fontWeight: "bold",
     // color: appColors.orange_two
   },
