@@ -1,14 +1,18 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Dimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import img from "../assets/images/swiper_one_image.png";
 import appColors from '@/utils/appColors';
 
 export default function SliderOne() {
-  
+  const screenWidth = Dimensions.get("screen").width;
+  const screenHeight = Dimensions.get("screen").height;
+  console.log("WIDTH: ", screenWidth);
+  console.log("HEIGHT: ", screenHeight);
+
   return (
     <View style={styles.main_container}>
       <View>
-        <Text>Apply for loans easily</Text>
+        <Text style={styles.textStyle}>Apply for loans easily</Text>
       </View>
       {/* <View> */}
         <Image
@@ -17,7 +21,7 @@ export default function SliderOne() {
         />
       {/* </View> */}
       <View>
-      <Text>Choose a loan that meet your needs and apply with our simple step</Text>
+      <Text style={styles.textStyle}>Choose a loan that meet your needs and apply with our simple step</Text>
       </View>
     </View>
   )
@@ -26,8 +30,6 @@ export default function SliderOne() {
 const styles = StyleSheet.create({
     main_container:{
         flex: 1,
-        // display: "flex",
-        // flexDirection: "column",
         justifyContent: "space-around",
         padding: 10,
         backgroundColor: appColors.white
@@ -35,5 +37,8 @@ const styles = StyleSheet.create({
     img:{
       width: "100%",
       height: "50%"
+    },
+    textStyle:{
+      fontSize: 20,
     }
 })

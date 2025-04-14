@@ -1,9 +1,7 @@
 import { Stack } from "expo-router";
-import { SafeAreaView } from "react-native";
 
 export default function RootLayout() {
   return (
-    // <SafeAreaView>
       <Stack
         screenOptions={{
           headerStyle: {
@@ -25,20 +23,5 @@ export default function RootLayout() {
           options={{ title: "", headerShown: false }}
         />
       </Stack>
-    // </SafeAreaView>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#fff",
-//   },
-//   text: {
-//     fontFamily: "Poppins-Regular", // Use the Poppins font globally
-//     fontSize: 20,
-//     color: "#333",
-//   },
-// });
