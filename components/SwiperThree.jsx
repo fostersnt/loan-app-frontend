@@ -51,7 +51,10 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     backgroundColor: appColors.orange_two,
-    paddingVertical: 10
+    paddingVertical: 10,
+    marginBottom: 20,
+    marginHorizontal: 10,
+    borderRadius: 10
   },
   btnText:{
     color: appColors.white,
