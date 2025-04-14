@@ -12,14 +12,14 @@ export default function SliderOne() {
   return (
     <View style={styles.main_container}>
       <View style={styles.container_1}>
-        <Text style={styles.textStyle}>Tax-free Loans</Text>
+        <Text style={styles.textStyle}>Flexible repayment plan</Text>
       </View>
       {/* <View> */}
       <Image style={styles.img} source={img} />
       {/* </View> */}
       <View style={styles.container_1}>
         <Text style={styles.textStyle}>
-          LoanGH is here to serve you with loans that are free from TAX
+        With LoanGH, enjoy flexible repayment options tailored to bring you peace of mind.
         </Text>
       </View>
     </View>

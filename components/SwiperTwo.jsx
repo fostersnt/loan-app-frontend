@@ -12,14 +12,14 @@ export default function SliderOne() {
   return (
     <View style={styles.main_container}>
       <View style={styles.container_1}>
-        <Text style={styles.textStyle}>Tax-free Loans</Text>
+        <Text style={styles.textStyle}>Low interest rate</Text>
       </View>
       {/* <View> */}
       <Image style={styles.img} source={img} />
       {/* </View> */}
-      <View style={styles.container_1}>
+      <View style={styles.container_2}>
         <Text style={styles.textStyle}>
-          LoanGH is here to serve you with loans that are free from TAX
+          We don't just provide you with a loan. We ensure the loan is flexible.
         </Text>
       </View>
     </View>
@@ -39,8 +39,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   container_2: {
-    width: "100%",
-    alignItems: "center",
+    // width: "100%",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center"
   },
   img: {
     width: "100%",
@@ -49,6 +51,6 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 20,
     // fontWeight: "bold",
-    color: "appColors.orange_two"
+    // color: appColors.orange_two
   },
 });
