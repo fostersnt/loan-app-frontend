@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   dotStyle: {
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.dark_one,
     width: 10,
     height: 10,
     borderRadius: 20,
