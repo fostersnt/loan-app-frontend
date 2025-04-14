@@ -13,10 +13,10 @@ export default function RootLayout() {
           },
         }}
       >
-        <Stack.Screen
+        {/* <Stack.Screen
           name="index"
           options={{ title: "", headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="screens/swiper"
           options={{ title: "", headerShown: false }}
