@@ -1,7 +1,7 @@
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import React, { useEffect, useState } from "react";
 import img from "../assets/images/swiper_one_image.png";
-import appColors from '@/utils/appColors';
+import appColors from "@/utils/appColors";
 
 export default function SliderOne() {
   const screenWidth = Dimensions.get("screen").width;
@@ -11,34 +11,41 @@ export default function SliderOne() {
 
   return (
     <View style={styles.main_container}>
-      <View>
+      <View style={styles.container_1}>
         <Text style={styles.textStyle}>Apply for loans easily</Text>
       </View>
       {/* <View> */}
-        <Image
-        style={styles.img}
-        source={img}
-        />
+      <Image style={styles.img} source={img} />
       {/* </View> */}
-      <View>
-      <Text style={styles.textStyle}>Choose a loan that meet your needs and apply with our simple step</Text>
+      <View style={styles.container_1}>
+        <Text style={styles.textStyle}>
+          Choose a loan that meet your needs and apply with our simple step
+        </Text>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-    main_container:{
-        flex: 1,
-        justifyContent: "space-around",
-        padding: 10,
-        backgroundColor: appColors.white
-    },
-    img:{
-      width: "100%",
-      height: "50%"
-    },
-    textStyle:{
-      fontSize: 20,
-    }
-})
+  main_container: {
+    flex: 1,
+    justifyContent: "space-around",
+    padding: 10,
+    backgroundColor: appColors.white,
+  },
+  container_1: {
+    width: "100%",
+    alignItems: "center",
+  },
+  container_2: {
+    width: "100%",
+    alignItems: "center",
+  },
+  img: {
+    width: "100%",
+    height: "50%",
+  },
+  textStyle: {
+    fontSize: 20,
+  },
+});
