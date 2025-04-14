@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-around",
     padding: 10,
-    backgroundColor: appColors.white,
+    // backgroundColor: appColors.white,
+    backgroundColor: "#f0f0f0"
   },
   container_1: {
     width: "100%",
@@ -47,5 +48,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
+    // fontWeight: "bold",
+    color: "appColors.orange_two"
   },
 });
