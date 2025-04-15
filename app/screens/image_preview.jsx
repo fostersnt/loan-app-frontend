@@ -30,7 +30,7 @@ export default function ImagePreview() {
                     <Text style={styles.buttonText}>Retake</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonProceed} onPress={()=>{}}>
+                <TouchableOpacity style={styles.buttonProceed} onPress={() => { }}>
                     <Text style={styles.buttonText}>Proceed</Text>
                 </TouchableOpacity>
             </View>
