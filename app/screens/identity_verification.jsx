@@ -1,5 +1,6 @@
-import { saveFileToStorage } from '@/utils/general';
-import { Camera, CameraView, useCameraPermissions } from 'expo-camera';
+import appColors from '@/utils/appColors';
+import { useCameraPermissions, CameraView } from 'expo-camera';
+import { useNavigation } from 'expo-router';
 import { useRef, useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View, Dimensions, Image } from 'react-native';
 import Svg, { Rect, Circle, Defs, Mask } from 'react-native-svg';
@@ -7,10 +8,12 @@ import Svg, { Rect, Circle, Defs, Mask } from 'react-native-svg';
 const { width, height } = Dimensions.get('window');
 
 export default function App() {
-  const [facing, setFacing] = useState(Camera.Constants.Type.front);
+  // const [facing, setFacing] = useState(Camera.Constants.Type.front);
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef(null);
-  const [photo, setPhoto] = useState(null);
+  // const [photo, setPhoto] = useState(null);
+
+  const navigate = useNavigation();
 
   if (!permission) return <View />;
   if (!permission.granted) {
@@ -22,19 +25,26 @@ export default function App() {
     );
   }
 
-  async function takePicture() {
-    if (cameraRef.current) {
-      const photoData = await cameraRef.current.takePictureAsync();
-      await saveFileToStorage(photoData.uri)
-      setPhoto(photoData.uri);
-    }
+  const takePicture = async () => {
+    console.log("HELL ");
+
+    const photoData = await cameraRef.current.takePictureAsync();
+    // setPhoto(photoData.uri);
+    navigate.navigate("screens/image_preview", {imageUrl: photoData.uri})
+    console.log("PHOTO DETAILS === ", photoData);
   }
 
   return (
     <View style={styles.container}>
-      <CameraView ref={cameraRef} style={styles.camera} type={"front"}>
-        <View style={styles.overlay}>
-          <Svg height={height} width={width}>
+      <CameraView
+        ref={cameraRef}
+        style={styles.camera}
+        type={"front"}
+        mode='picture'
+        pictureSize='150'
+        autofocus='on'
+      >
+        <Svg height={height} width={width}>
             <Defs>
               <Mask id="mask" x="0" y="0" height="100%" width="100%">
                 <Rect height="100%" width="100%" fill="white" />
@@ -53,24 +63,16 @@ export default function App() {
               mask="url(#mask)"
             />
           </Svg>
+        <View style={styles.overlay}>
 
           <Text style={styles.instruction}>
             Take a live picture{'\n'}Center your face, blink twice, and smile slightly
           </Text>
-
           <TouchableOpacity style={styles.captureButton} onPress={takePicture}>
             <View style={styles.captureInner} />
           </TouchableOpacity>
         </View>
       </CameraView>
-
-      {/* Show captured photo */}
-      {photo && (
-        <View style={styles.preview}>
-          <Image source={{ uri: photo }} style={styles.photo} />
-          <Button title="Retake" onPress={() => setPhoto(null)} />
-        </View>
-      )}
     </View>
   );
 }
@@ -106,27 +108,33 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 40,
     borderWidth: 4,
-    borderColor: 'white',
+    borderColor: appColors.white,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
   },
   captureInner: {
+    position: "absolute",
+    zIndex: 2,
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: 'white',
+    backgroundColor: appColors.white,
   },
   preview: {
+    flex: 1,
     position: 'absolute',
-    top: 80,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
     alignSelf: 'center',
     alignItems: 'center',
-    overflow: "hidden"
+    backgroundColor: appColors.orange_two
   },
   photo: {
-    borderRadius: 50,
-    width: 300,
-    height: 400,
+    width: 250,
+    height: 250,
+    borderRadius: 150,
   },
 });
