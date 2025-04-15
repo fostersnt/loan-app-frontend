@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import img from "../assets/images/swiper_one_image.png";
 import appColors from "@/utils/appColors";
 import FastImage from 'react-native-fast-image';
+// import { confirmAction } from "@/utils/general";
 
 export default function SliderOne() {
   const screenWidth = Dimensions.get("screen").width;

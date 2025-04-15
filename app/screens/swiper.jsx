@@ -2,11 +2,17 @@ import SwiperOne from "@/components/SwiperOne";
 import SwiperThree from "@/components/SwiperThree";
 import SwiperTwo from "@/components/SwiperTwo";
 import appColors from "@/utils/appColors";
-import React from "react";
+import { confirmBackAction } from "@/utils/general";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Swiper from "react-native-swiper";
 
 export default function SwiperScreen() {
+
+  useEffect(() => {
+    confirmBackAction();
+  }, []);
+
   return (
     <Swiper
       style={styles.wrapper}
