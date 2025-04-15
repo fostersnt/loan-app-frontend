@@ -1,8 +1,25 @@
+import { useNavigation } from 'expo-router';
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function HomeScreen() {
+  const navigate = useNavigation();
+
+  const myActionFunc = () => {
+    navigate.navigate("screens/identity_verification");
+  }
+
+  const ActionButton = ({ icon, label, actionFunc = ()=>{} }) => (
+    <TouchableOpacity 
+    style={styles.button}
+    onPress={actionFunc}
+    >
+      <Icon name={icon} size={24} color="#4A90E2" />
+      <Text style={styles.buttonLabel}>{label}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -13,7 +30,7 @@ export default function HomeScreen() {
           <ActionButton icon="add-circle-outline" label="Apply Loan" />
           <ActionButton icon="document-text-outline" label="My Loans" />
           <ActionButton icon="card-outline" label="Repay Loan" />
-          <ActionButton icon="calculator-outline" label="Calculator" />
+          <ActionButton icon="calculator-outline" label="Verification" actionFunc={myActionFunc} />
         </View>
 
         <View style={styles.loanSummary}>
@@ -31,13 +48,6 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
-
-const ActionButton = ({ icon, label }) => (
-  <TouchableOpacity style={styles.button}>
-    <Icon name={icon} size={24} color="#4A90E2" />
-    <Text style={styles.buttonLabel}>{label}</Text>
-  </TouchableOpacity>
-);
 
 const styles = StyleSheet.create({
   container: {

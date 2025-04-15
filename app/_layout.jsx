@@ -33,6 +33,10 @@ export default function RootLayout() {
           name="screens/home"
           options={{ title: "", headerShown: false }}
         />
+        <Stack.Screen
+          name="screens/identity_verification"
+          options={{ title: "", headerShown: false }}
+        />
       </Stack>
       
   );
