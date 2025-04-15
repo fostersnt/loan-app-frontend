@@ -1,3 +1,4 @@
+import appColors from '@/utils/appColors';
 import { useRoute } from '@react-navigation/native';
 import { useNavigation } from 'expo-router';
 import React from 'react';
@@ -75,13 +76,13 @@ const styles = StyleSheet.create({
         gap: 20,
     },
     buttonRetake: {
-        backgroundColor: '#ff4d4d',
+        backgroundColor: appColors.orange_two,
         paddingVertical: 12,
         paddingHorizontal: 25,
         borderRadius: 30,
     },
     buttonProceed: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: appColors.violet_one,
         paddingVertical: 12,
         paddingHorizontal: 25,
         borderRadius: 30,
