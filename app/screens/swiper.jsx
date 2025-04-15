@@ -15,6 +15,10 @@ export default function SwiperScreen() {
       index={0}
       dot={<View style={styles.dotStyle} />}
       activeDot={<View style={styles.activeDotStyle} />}
+      loadMinimal={true}
+      loadMinimalSize={2}
+      autoplay={true}
+      autoplayTimeout={3}
     >
       <SwiperOne />
       <SwiperTwo />

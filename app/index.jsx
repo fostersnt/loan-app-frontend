@@ -28,7 +28,7 @@ export default function Index() {
       } catch (err) {
         console.log("ERROR MESSAGE === ", err);
       }
-    } 
+    }
 
     getOrCreateDeviceId();
 
