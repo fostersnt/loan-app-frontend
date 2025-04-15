@@ -66,6 +66,7 @@
 
 import appColors from '@/utils/appColors';
 import { useCameraPermissions, CameraView } from 'expo-camera';
+import { useNavigation } from 'expo-router';
 import { useRef, useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View, Dimensions, Image } from 'react-native';
 import Svg, { Rect, Circle, Defs, Mask } from 'react-native-svg';
@@ -76,7 +77,9 @@ export default function App() {
   // const [facing, setFacing] = useState(Camera.Constants.Type.front);
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef(null);
-  const [photo, setPhoto] = useState(null);
+  // const [photo, setPhoto] = useState(null);
+
+  const navigate = useNavigation();
 
   if (!permission) return <View />;
   if (!permission.granted) {
@@ -90,12 +93,11 @@ export default function App() {
 
   const takePicture = async () => {
     console.log("HELL ");
-    
-    // if (cameraRef.current) {
-      const photoData = await cameraRef.current.takePictureAsync();
-      setPhoto(photoData.uri);
-      console.log("PHOTO DETAILS === ", photoData);
-    // }
+
+    const photoData = await cameraRef.current.takePictureAsync();
+    // setPhoto(photoData.uri);
+    navigate.navigate("screens/image_preview", {imageUrl: photoData.uri})
+    console.log("PHOTO DETAILS === ", photoData);
   }
 
   return (
@@ -109,42 +111,34 @@ export default function App() {
         autofocus='on'
       >
         <Svg height={height} width={width}>
-          <Defs>
-            <Mask id="mask" x="0" y="0" height="100%" width="100%">
-              <Rect height="100%" width="100%" fill="white" />
-              <Circle
-                cx={width / 2}
-                cy={height / 2.5}
-                r={130}
-                fill="black"
-              />
-            </Mask>
-          </Defs>
-          <Rect
-            height="100%"
-            width="100%"
-            fill="rgba(0,0,0,0.6)"
-            mask="url(#mask)"
-          />
-        </Svg>
+            <Defs>
+              <Mask id="mask" x="0" y="0" height="100%" width="100%">
+                <Rect height="100%" width="100%" fill="white" />
+                <Circle
+                  cx={width / 2}
+                  cy={height / 2.5}
+                  r={130}
+                  fill="black"
+                />
+              </Mask>
+            </Defs>
+            <Rect
+              height="100%"
+              width="100%"
+              fill="rgba(0,0,0,0.6)"
+              mask="url(#mask)"
+            />
+          </Svg>
         <View style={styles.overlay}>
 
           <Text style={styles.instruction}>
             Take a live picture{'\n'}Center your face, blink twice, and smile slightly
           </Text>
-          <TouchableOpacity style={styles.captureButton} onPress={ takePicture }>
+          <TouchableOpacity style={styles.captureButton} onPress={takePicture}>
             <View style={styles.captureInner} />
           </TouchableOpacity>
         </View>
       </CameraView>
-
-      {/* Show captured photo */}
-      {photo && (
-        <View style={styles.preview}>
-          <Image source={{ uri: photo }} style={styles.photo} />
-          <Button title="Retake" onPress={() => setPhoto(null)} />
-        </View>
-      )}
     </View>
   );
 }
@@ -186,7 +180,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   captureInner: {
-    // position: "absolute",
+    position: "absolute",
     zIndex: 2,
     width: 60,
     height: 60,
@@ -194,14 +188,19 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.white,
   },
   preview: {
+    flex: 1,
     position: 'absolute',
-    top: 80,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
     alignSelf: 'center',
     alignItems: 'center',
+    backgroundColor: appColors.orange_two
   },
   photo: {
-    width: 300,
-    height: 400,
-    borderRadius: 10,
+    width: 250,
+    height: 250,
+    borderRadius: 150,
   },
 });

@@ -1,5 +1,5 @@
 import { saveFileToStorage } from '@/utils/general';
-import { Camera, useCameraPermissions } from 'expo-camera';
+import { Camera, CameraView, useCameraPermissions } from 'expo-camera';
 import { useRef, useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View, Dimensions, Image } from 'react-native';
 import Svg, { Rect, Circle, Defs, Mask } from 'react-native-svg';
@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Camera ref={cameraRef} style={styles.camera} type={"front"}>
+      <CameraView ref={cameraRef} style={styles.camera} type={"front"}>
         <View style={styles.overlay}>
           <Svg height={height} width={width}>
             <Defs>
@@ -62,7 +62,7 @@ export default function App() {
             <View style={styles.captureInner} />
           </TouchableOpacity>
         </View>
-      </Camera>
+      </CameraView>
 
       {/* Show captured photo */}
       {photo && (
@@ -122,10 +122,11 @@ const styles = StyleSheet.create({
     top: 80,
     alignSelf: 'center',
     alignItems: 'center',
+    overflow: "hidden"
   },
   photo: {
+    borderRadius: 50,
     width: 300,
     height: 400,
-    borderRadius: 10,
   },
 });

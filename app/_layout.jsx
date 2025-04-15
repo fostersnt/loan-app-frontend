@@ -37,6 +37,10 @@ export default function RootLayout() {
           name="screens/identity_verification"
           options={{ title: "", headerShown: false }}
         />
+        <Stack.Screen
+          name="screens/image_preview"
+          options={{ title: "", headerShown: false }}
+        />
       </Stack>
       
   );
