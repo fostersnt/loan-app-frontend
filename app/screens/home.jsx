@@ -73,7 +73,7 @@ export default function HomeScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.greeting}>👋 Hello, {userInfo.name}!</Text>
+      <Text style={styles.greeting}>{userInfo.name}!</Text>
       <View style={{width: "100%", justifyContent: "center", alignItems: "center"}}>
       <View style={[styles.profilePicContainer, {width: imgCont, height: imgCont}]}>
         {userInfo && userInfo.picture ? (
@@ -87,8 +87,8 @@ export default function HomeScreen() {
       </View>
       </View>
       <View style={styles.balanceContainer}>
-        <Text style={styles.balance}>Your balance:</Text>
-        <Text style={styles.balanceAmount}>$1,250.00</Text>
+        <Text style={styles.balance}>Balance</Text>
+        <Text style={styles.balanceAmount}>GHs 1,250.00</Text>
       </View>
 
       <View style={styles.actionRow}>
@@ -116,7 +116,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F4F6F9',
+    // backgroundColor: '#F4F6F9',
+    backgroundColor: appColors.white,
     padding: 20,
   },
   greeting: {
@@ -169,15 +170,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   balance: {
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 20,
     textAlign: "center",
+    color: appColors.dark_one
   },
   balanceAmount: {
-    fontSize: 18,
+    fontSize: 20,
     textAlign: "center",
     fontWeight: 'bold',
-    color: '#4A90E2',
+    color: appColors.orange_two,
+    // color: '#4A90E2',
   },
   actionRow: {
     flexDirection: 'row',
