@@ -1,5 +1,5 @@
 import appColors from "@/utils/appColors";
-import { Image, StatusBar, StyleSheet, View } from "react-native";
+import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
 import bankNote from "../assets/images/Banknote.png";
 import { useEffect, useState } from "react";
 import { useNavigation } from "expo-router";
@@ -11,7 +11,7 @@ export default function Index() {
   const navigate = useNavigation();
   const [deviceId, setDeviceId] = useState(null);
 
-  useEffect(() => { 
+  useEffect(() => {
     async function getOrCreateDeviceId() {
       try {
         let Id = await AsyncStorage.getItem("deviceId");

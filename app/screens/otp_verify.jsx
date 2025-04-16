@@ -33,7 +33,8 @@ export default function OtpVerificationScreen() {
     const code = otp.join('');
     if (code.length === 4) {
       // alert(`OTP Verified: ${code}`);
-      navigate.navigate("screens/home");
+      // navigate.navigate("screens/home");
+      navigate.navigate('(tabs)');
     } else {
       alert('Please enter the complete OTP');
     }
