@@ -61,41 +61,39 @@ export default function HomeScreen() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <Text style={styles.greeting}>👋 Hello, {userInfo.name}!</Text>
-        <View style={styles.profilePicContainer}>
-          {userInfo && userInfo.picture ? (
-            <Image
-              style={styles.profileImage}
-              source={{ uri: userInfo.picture }}
-            />
-          ) : (
-            <Text>Loading...</Text>
-          )}
-        </View>
-        <Text style={styles.balance}>Your balance: <Text style={styles.balanceAmount}>$1,250.00</Text></Text>
+    <ScrollView style={styles.container}>
+      <Text style={styles.greeting}>👋 Hello, {userInfo.name}!</Text>
+      <View style={styles.profilePicContainer}>
+        {userInfo && userInfo.picture ? (
+          <Image
+            style={styles.profileImage}
+            source={{ uri: userInfo.picture }}
+          />
+        ) : (
+          <Text>Loading...</Text>
+        )}
+      </View>
+      <Text style={styles.balance}>Your balance: <Text style={styles.balanceAmount}>$1,250.00</Text></Text>
 
-        <View style={styles.actionRow}>
-          <ActionButton icon="add-circle-outline" label="Apply Loan" />
-          <ActionButton icon="document-text-outline" label="My Loans" />
-          <ActionButton icon="card-outline" label="Repay Loan" />
-          <ActionButton icon="calculator-outline" label="Verification" actionFunc={myActionFunc} />
-        </View>
+      <View style={styles.actionRow}>
+        <ActionButton icon="add-circle-outline" label="Apply Loan" />
+        <ActionButton icon="document-text-outline" label="My Loans" />
+        <ActionButton icon="card-outline" label="Repay Loan" />
+        <ActionButton icon="calculator-outline" label="Verification" actionFunc={myActionFunc} />
+      </View>
 
-        <View style={styles.loanSummary}>
-          <Text style={styles.sectionTitle}>🧾 Latest Loan Summary</Text>
-          <Text>Loan ID: #123456</Text>
-          <Text>Status: Approved ✅</Text>
-          <Text>Amount: $5,000</Text>
-          <Text>EMI Due: $250 on 20th Apr</Text>
-        </View>
+      <View style={styles.loanSummary}>
+        <Text style={styles.sectionTitle}>🧾 Latest Loan Summary</Text>
+        <Text>Loan ID: #123456</Text>
+        <Text>Status: Approved ✅</Text>
+        <Text>Amount: $5,000</Text>
+        <Text>EMI Due: $250 on 20th Apr</Text>
+      </View>
 
-        <TouchableOpacity style={styles.notification}>
-          <Text>🔔 Notifications (1)</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </SafeAreaView>
+      <TouchableOpacity style={styles.notification}>
+        <Text>🔔 Notifications (1)</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
@@ -128,16 +126,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 20,
 
+    // shadowColor: "#000",
+    // shadowOffset: { width: 0, height: 4 },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 6,
+    // elevation: 8,
+  },
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 6,
     elevation: 8,
-  },
-  profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 100
   },
   balance: {
     fontSize: 16,
