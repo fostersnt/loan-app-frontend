@@ -14,9 +14,7 @@ export default function SliderOne() {
       <View style={styles.container_1}>
         <Text style={[styles.textStyle_1, {fontSize: font_size}]}>Low interest rate</Text>
       </View>
-      {/* <View> */}
       <Image style={styles.img} source={img} />
-      {/* </View> */}
       <View style={styles.container_2}>
         <Text style={styles.textStyle_2}>
           We don't just provide you with a loan. We ensure the loan is flexible.

@@ -2,7 +2,6 @@ import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import React, { useEffect, useState } from "react";
 import img from "../assets/images/swiper_one_image.png";
 import appColors from "@/utils/appColors";
-import FastImage from 'react-native-fast-image';
 // import { confirmAction } from "@/utils/general";
 
 export default function SliderOne() {
@@ -16,14 +15,7 @@ export default function SliderOne() {
       <View style={styles.container_1}>
         <Text style={[styles.textStyle_1, { fontSize: font_size }]}>Fast & Secure Approval</Text>
       </View>
-      {/* <View> */}
       <Image style={styles.img} source={img} />
-      {/* <FastImage
-        style={styles.img}
-        source={img}
-        resizeMode={FastImage.resizeMode.cover}
-      /> */}
-      {/* </View> */}
       <View style={styles.container_1}>
         <Text style={styles.textStyle_2}>
           Your loan application is processed swiftly and securely. Get fast approval and know the status of your loan application within moments.
