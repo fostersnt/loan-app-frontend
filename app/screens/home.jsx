@@ -4,6 +4,10 @@ import { useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import HomeImage1 from "../../assets/images/swiper_one_image.png";
+import HomeImage2 from "../../assets/images/swiper_two_image.png";
+import HomeImage3 from "../../assets/images/swiper_three_image.png";
+import HomeImage4 from "../../assets/images/swiper_one_image.png";
 
 export default function HomeScreen() {
   const navigate = useNavigation();
@@ -50,12 +54,16 @@ export default function HomeScreen() {
     navigate.navigate("screens/identity_verification");
   }
 
-  const ActionButton = ({ icon, label, actionFunc = () => { } }) => (
+  const ActionButton = ({ icon, label, imageUrl, actionFunc = () => { } }) => (
     <TouchableOpacity
       style={styles.button}
       onPress={actionFunc}
     >
-      <Icon name={icon} size={24} color="#4A90E2" />
+      {/* <Icon name={icon} size={24} color="#4A90E2" /> */}
+      <Image
+        style={styles.buttonImage}
+        source={imageUrl}
+      />
       <Text style={styles.buttonLabel}>{label}</Text>
     </TouchableOpacity>
   );
@@ -63,6 +71,7 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.greeting}>👋 Hello, {userInfo.name}!</Text>
+      <View style={{width: "100%", justifyContent: "center", alignItems: "center"}}>
       <View style={styles.profilePicContainer}>
         {userInfo && userInfo.picture ? (
           <Image
@@ -73,16 +82,17 @@ export default function HomeScreen() {
           <Text>Loading...</Text>
         )}
       </View>
+      </View>
       <View style={styles.balanceContainer}>
         <Text style={styles.balance}>Your balance:</Text>
         <Text style={styles.balanceAmount}>$1,250.00</Text>
       </View>
 
       <View style={styles.actionRow}>
-        <ActionButton icon="add-circle-outline" label="Apply Loan" />
-        <ActionButton icon="document-text-outline" label="My Loans" />
-        <ActionButton icon="card-outline" label="Repay Loan" />
-        <ActionButton icon="calculator-outline" label="Verification" actionFunc={myActionFunc} />
+        <ActionButton icon="add-circle-outline" label="Apply Loan" imageUrl={HomeImage1} />
+        <ActionButton icon="document-text-outline" label="My Loans" imageUrl={HomeImage2} />
+        <ActionButton icon="card-outline" label="Repay Loan" imageUrl={HomeImage3} />
+        <ActionButton icon="calculator-outline" label="Verification" imageUrl={HomeImage4} actionFunc={myActionFunc} />
       </View>
 
       <View style={styles.loanSummary}>
@@ -124,7 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     padding: 10,
 
-    width: "100%",
+    width: "50%",
     justifyContent: "center",
     alignItems: "center",
     // marginVertical: 20,
@@ -183,6 +193,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 5,
     elevation: 3,
+  },
+  buttonImage: {
+    width: 100,
+    height: 100,
   },
   buttonLabel: {
     marginTop: 8,
