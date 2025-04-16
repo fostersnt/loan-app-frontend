@@ -2,12 +2,12 @@ import { Login } from '@/utils/api';
 import appColors from '@/utils/appColors';
 import { useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Dimensions } from 'react-native';
 import HomeImage1 from "../../assets/images/home_image1.png";
 import HomeImage2 from "../../assets/images/home_image2.png";
 import HomeImage3 from "../../assets/images/home_image3.png";
 import HomeImage4 from "../../assets/images/home_image4.png";
+import imagePlaceHolder from "../../assets/images/image_placeholder.png";
 
 export default function HomeScreen() {
   const navigate = useNavigation();
@@ -62,11 +62,19 @@ export default function HomeScreen() {
       style={styles.button}
       onPress={actionFunc}
     >
-      {/* <Icon name={icon} size={24} color="#4A90E2" /> */}
-      <Image
+      {
+        userInfo.name == "N/A" ?
+        (<Image
+        style={styles.buttonImage}
+        source={imagePlaceHolder}
+        />):
+        (
+          <Image
         style={styles.buttonImage}
         source={imageUrl}
       />
+        )
+      }
       <Text style={styles.buttonLabel}>{label}</Text>
     </TouchableOpacity>
   );
