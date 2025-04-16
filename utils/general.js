@@ -2,6 +2,9 @@ import { BackHandler, Alert, Platform } from "react-native";
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
 
+// export const baseUrl = "https://jsonplaceholder.typicode.com";
+export const baseUrl = "https://randomuser.me/api/";
+
 const backAction = () => {
     // Optional: Confirm exit dialog
     Alert.alert("Hold on!", "Do you really want to exit the app?", [

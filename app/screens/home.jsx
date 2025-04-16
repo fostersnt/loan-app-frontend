@@ -1,17 +1,33 @@
+import { Login } from '@/utils/api';
 import { useNavigation } from 'expo-router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function HomeScreen() {
   const navigate = useNavigation();
 
+  useEffect(()=>{
+    const getData = async () => {
+      const msisdn = "0553255225";
+      const data = await Login(msisdn);
+      const title = data.data['name']['title']
+      const firstName = data.data['name']['first']
+      const lastName = data.data['name']['last']
+      const fullName = `${title} ${firstName} ${lastName}`;
+      const profilePic = data.data['picture']['medium'];
+      console.log("USER FULL NAME === ", fullName);
+      console.log("PROFILE PICTURE === ", profilePic);
+    }
+    getData();
+  })
+
   const myActionFunc = () => {
     navigate.navigate("screens/identity_verification");
   }
 
   const ActionButton = ({ icon, label, actionFunc = ()=>{} }) => (
-    <TouchableOpacity 
+    <TouchableOpacity
     style={styles.button}
     onPress={actionFunc}
     >
