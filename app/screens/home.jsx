@@ -1,39 +1,57 @@
 import { Login } from '@/utils/api';
+import appColors from '@/utils/appColors';
 import { useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function HomeScreen() {
   const navigate = useNavigation();
-  const [userName, setUserName] = useState(null);
+  const [userInfo, setUserInfo] = useState({
+    name: "N/A",
+    picture: "N/A"
+  });
 
-  useEffect(()=>{
-    const getData = async () => {
-      const msisdn = "0553255225";
-      const data = await Login(msisdn);
-      const title = data.data['name']['title']
-      const firstName = data.data['name']['first']
-      const lastName = data.data['name']['last']
-      const fullName = `${title} ${firstName} ${lastName}`;
+  useEffect(() => {
+    try {
+      const getData = async () => {
 
-      setUserName(fullName);
+        const msisdn = "0553255225";
+        const userData = await Login(msisdn);
+        const title = userData.data['name']['title']
+        const firstName = userData.data['name']['first']
+        const lastName = userData.data['name']['last']
+        const fullName = `${title} ${firstName} ${lastName}`;
+        const profilePic = userData.data['picture']['medium'];
 
-      const profilePic = data.data['picture']['medium'];
-      console.log("USER FULL NAME === ", fullName);
-      console.log("PROFILE PICTURE === ", profilePic);
+
+        const updatedUserInfo = {
+          name: fullName,
+          picture: profilePic
+        };
+
+        setUserInfo(updatedUserInfo);
+
+        console.log("USER INFO", userInfo);
+
+        // console.log("USER FULL NAME === ", fullName);
+        console.log("PROFILE PICTURE === ", profilePic);
+      }
+      getData();
+    } catch (err) {
+      console.log("HOME ERROR === ", err);
+
     }
-    getData();
   }, []);
 
   const myActionFunc = () => {
     navigate.navigate("screens/identity_verification");
   }
 
-  const ActionButton = ({ icon, label, actionFunc = ()=>{} }) => (
+  const ActionButton = ({ icon, label, actionFunc = () => { } }) => (
     <TouchableOpacity
-    style={styles.button}
-    onPress={actionFunc}
+      style={styles.button}
+      onPress={actionFunc}
     >
       <Icon name={icon} size={24} color="#4A90E2" />
       <Text style={styles.buttonLabel}>{label}</Text>
@@ -43,7 +61,13 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.greeting}>👋 Hello, {userName}!</Text>
+        <Text style={styles.greeting}>👋 Hello, {userInfo.name}!</Text>
+        <View style = {styles.profilePicContainer}>
+          <Image
+            style={styles.profileImage}
+            source={{ uri: userInfo.picture }}
+          />
+        </View>
         <Text style={styles.balance}>Your balance: <Text style={styles.balanceAmount}>$1,250.00</Text></Text>
 
         <View style={styles.actionRow}>
@@ -77,8 +101,20 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 22,
-    fontWeight: '600',
+    // fontWeight: '600',
     marginBottom: 10,
+    color: appColors.dark_one,
+    textAlign: "center",
+  },
+  profilePicContainer:{
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 100
   },
   balance: {
     fontSize: 16,
