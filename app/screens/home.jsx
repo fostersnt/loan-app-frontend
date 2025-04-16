@@ -102,7 +102,7 @@ export default function HomeScreen() {
 
         <View style={styles.actionRow}>
           <ActionButton icon="add-circle-outline" label="Apply Loan" imageUrl={HomeImage1} />
-          <ActionButton icon="document-text-outline" label="My Loans" imageUrl={HomeImage2} />
+          <ActionButton icon="document-text-outline" label="Loan History" imageUrl={HomeImage2} />
           <ActionButton icon="card-outline" label="Repay Loan" imageUrl={HomeImage3} />
           <ActionButton icon="calculator-outline" label="Verification" imageUrl={HomeImage4} actionFunc={myActionFunc} />
         </View>
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 6,
     elevation: 8,
-    marginVertical: 30,
+    marginVertical: 15,
     height: 100,
     justifyContent: "center",
   },
