@@ -1,7 +1,8 @@
 import appColors from '@/utils/appColors';
 import { useNavigation } from 'expo-router';
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar, Image } from 'react-native';
+import img from "../../assets/images/Login-amico.png";
 
 export default function PhoneLoginScreen() {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -20,22 +21,30 @@ export default function PhoneLoginScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#6200ee" barStyle="light-content" />
+      {/* <StatusBar backgroundColor="#6200ee" barStyle="light-content" /> */}
       <Text style={styles.title}>Welcome to LoanGH</Text>
-      <Text style={styles.subtitle}>Enter your phone number to continue</Text>
+      {/* <View style={styles.imgContainer}>
+        <Image
+          source={img}
+          style={styles.img}
+        />
+      </View> */}
+      <View>
+        <Text style={styles.subtitle}>Enter your phone number to continue</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        placeholderTextColor="#aaa"
-        keyboardType="phone-pad"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Phone Number"
+          placeholderTextColor="#aaa"
+          keyboardType="phone-pad"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+        />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Continue</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Continue</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -46,6 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingHorizontal: 25,
     justifyContent: 'center',
+    // alignItems: "center"
   },
   title: {
     fontSize: 28,
@@ -54,6 +64,15 @@ const styles = StyleSheet.create({
     // color: '#6200ee',
     color: appColors.orange_two,
     marginBottom: 10,
+  },
+  img: {
+    width: 200,
+    height: 200,
+  },
+  imgContainer: {
+    width: "100%",
+    // justifyContent: "center",
+    alignItems: "center",
   },
   subtitle: {
     fontSize: 16,

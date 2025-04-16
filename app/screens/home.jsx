@@ -73,7 +73,10 @@ export default function HomeScreen() {
           <Text>Loading...</Text>
         )}
       </View>
-      <Text style={styles.balance}>Your balance: <Text style={styles.balanceAmount}>$1,250.00</Text></Text>
+      <View style={styles.balanceContainer}>
+        <Text style={styles.balance}>Your balance:</Text>
+        <Text style={styles.balanceAmount}>$1,250.00</Text>
+      </View>
 
       <View style={styles.actionRow}>
         <ActionButton icon="add-circle-outline" label="Apply Loan" />
@@ -124,23 +127,33 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 20,
+    // marginVertical: 20,
 
-    // shadowColor: "#000",
-    // shadowOffset: { width: 0, height: 4 },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 6,
-    // elevation: 8,
-  },
-  profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 100,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 6,
     elevation: 8,
+  },
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+    // shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 8,
+  },
+  balanceContainer: {
+    backgroundColor: "#fff",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 8,
+    marginVertical: 30,
+    height: 100,
+    justifyContent: "center",
   },
   balance: {
     fontSize: 16,
@@ -148,6 +161,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   balanceAmount: {
+    fontSize: 18,
+    textAlign: "center",
     fontWeight: 'bold',
     color: '#4A90E2',
   },
