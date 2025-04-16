@@ -87,7 +87,7 @@ export default function HomeScreen() {
       </View>
       </View>
       <View style={styles.balanceContainer}>
-        <Text style={styles.balance}>Balance</Text>
+        <Text style={styles.balance}>Loan Balance</Text>
         <Text style={styles.balanceAmount}>GHs 1,250.00</Text>
       </View>
 
@@ -173,6 +173,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 20,
     textAlign: "center",
+    fontWeight: 'bold',
     color: appColors.dark_one
   },
   balanceAmount: {
