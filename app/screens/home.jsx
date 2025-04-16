@@ -2,7 +2,7 @@ import { Login } from '@/utils/api';
 import appColors from '@/utils/appColors';
 import { useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HomeImage1 from "../../assets/images/home_image1.png";
 import HomeImage2 from "../../assets/images/home_image2.png";
@@ -11,6 +11,9 @@ import HomeImage4 from "../../assets/images/home_image4.png";
 
 export default function HomeScreen() {
   const navigate = useNavigation();
+  const deviceWidth = Dimensions.get('screen').width;
+  const imgCont = (50 / 100) * deviceWidth;
+  const imgWidthAndHeight = imgCont - 20;
   const [userInfo, setUserInfo] = useState({
     name: "N/A",
     picture: "N/A"
@@ -72,10 +75,10 @@ export default function HomeScreen() {
     <ScrollView style={styles.container}>
       <Text style={styles.greeting}>👋 Hello, {userInfo.name}!</Text>
       <View style={{width: "100%", justifyContent: "center", alignItems: "center"}}>
-      <View style={styles.profilePicContainer}>
+      <View style={[styles.profilePicContainer, {width: imgCont, height: imgCont}]}>
         {userInfo && userInfo.picture ? (
           <Image
-            style={styles.profileImage}
+            style={[styles.profileImage, {width: imgWidthAndHeight, height: imgWidthAndHeight}]}
             source={{ uri: userInfo.picture }}
           />
         ) : (
@@ -133,8 +136,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 100,
     padding: 10,
-
-    width: "50%",
+    // height: "20%",
+    // width: "50%",
     justifyContent: "center",
     alignItems: "center",
     // marginVertical: 20,
@@ -146,8 +149,8 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   profileImage: {
-    width: 150,
-    height: 150,
+    // width: "95%",
+    // height: "95%",
     borderRadius: 100,
     // shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
