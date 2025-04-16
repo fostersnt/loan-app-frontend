@@ -74,7 +74,7 @@ export default function HomeScreen() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.greeting}>{userInfo.name}!</Text>
+        {/* <Text style={styles.greeting}>{userInfo.name}!</Text>
         <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
           <View style={[styles.profilePicContainer, { width: imgCont, height: imgCont }]}>
             {userInfo && userInfo.picture ? (
@@ -86,7 +86,7 @@ export default function HomeScreen() {
               <Text>Loading...</Text>
             )}
           </View>
-        </View>
+        </View> */}
         <View style={styles.balanceContainer}>
           <Text style={styles.balance}>Loan Balance</Text>
           <Text style={styles.balanceAmount}>GHs 1,250.00</Text>
@@ -209,7 +209,9 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     marginTop: 8,
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: appColors.dark_one
   },
   loanSummary: {
     backgroundColor: '#fff',

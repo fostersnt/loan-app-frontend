@@ -7,12 +7,13 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{
       tabBarShowLabel: false,
-      tabBarActiveTintColor: appColors.orange_two,
+      tabBarActiveTintColor: appColors.violet_one,
       tabBarStyle: {
         borderColor: appColors.white,
         borderRadius: 30,
         marginHorizontal: 20,
         marginBottom: 10,
+        paddingBottom: 20,
         height: 80,
         // iOS Shadow
         shadowColor: '#000',
