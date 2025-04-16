@@ -4,7 +4,7 @@ import SwiperTwo from "@/components/SwiperTwo";
 import appColors from "@/utils/appColors";
 import { confirmBackAction } from "@/utils/general";
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Swiper from "react-native-swiper";
 
 export default function SwiperScreen() {
@@ -14,22 +14,22 @@ export default function SwiperScreen() {
   }, []);
 
   return (
-    <Swiper
-      style={styles.wrapper}
-      showsButtons={false}
-      loop={false}
-      index={0}
-      dot={<View style={styles.dotStyle} />}
-      activeDot={<View style={styles.activeDotStyle} />}
-      loadMinimal={true}
-      loadMinimalSize={2}
-      autoplay={true}
-      autoplayTimeout={3}
-    >
-      <SwiperOne />
-      <SwiperTwo />
-      <SwiperThree />
-    </Swiper>
+      <Swiper
+        style={styles.wrapper}
+        showsButtons={false}
+        loop={false}
+        index={0}
+        dot={<View style={styles.dotStyle} />}
+        activeDot={<View style={styles.activeDotStyle} />}
+        loadMinimal={true}
+        loadMinimalSize={2}
+        autoplay={true}
+        autoplayTimeout={3}
+      >
+        <SwiperOne />
+        <SwiperTwo />
+        <SwiperThree />
+      </Swiper>
   );
 }
 

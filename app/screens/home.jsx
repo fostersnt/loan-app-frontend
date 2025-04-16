@@ -72,43 +72,45 @@ export default function HomeScreen() {
   );
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.greeting}>{userInfo.name}!</Text>
-      <View style={{width: "100%", justifyContent: "center", alignItems: "center"}}>
-      <View style={[styles.profilePicContainer, {width: imgCont, height: imgCont}]}>
-        {userInfo && userInfo.picture ? (
-          <Image
-            style={[styles.profileImage, {width: imgWidthAndHeight, height: imgWidthAndHeight}]}
-            source={{ uri: userInfo.picture }}
-          />
-        ) : (
-          <Text>Loading...</Text>
-        )}
-      </View>
-      </View>
-      <View style={styles.balanceContainer}>
-        <Text style={styles.balance}>Loan Balance</Text>
-        <Text style={styles.balanceAmount}>GHs 1,250.00</Text>
-      </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.greeting}>{userInfo.name}!</Text>
+        <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
+          <View style={[styles.profilePicContainer, { width: imgCont, height: imgCont }]}>
+            {userInfo && userInfo.picture ? (
+              <Image
+                style={[styles.profileImage, { width: imgWidthAndHeight, height: imgWidthAndHeight }]}
+                source={{ uri: userInfo.picture }}
+              />
+            ) : (
+              <Text>Loading...</Text>
+            )}
+          </View>
+        </View>
+        <View style={styles.balanceContainer}>
+          <Text style={styles.balance}>Loan Balance</Text>
+          <Text style={styles.balanceAmount}>GHs 1,250.00</Text>
+        </View>
 
-      <View style={styles.actionRow}>
-        <ActionButton icon="add-circle-outline" label="Apply Loan" imageUrl={HomeImage1} />
-        <ActionButton icon="document-text-outline" label="My Loans" imageUrl={HomeImage2} />
-        <ActionButton icon="card-outline" label="Repay Loan" imageUrl={HomeImage3} />
-        <ActionButton icon="calculator-outline" label="Verification" imageUrl={HomeImage4} actionFunc={myActionFunc} />
-      </View>
+        <View style={styles.actionRow}>
+          <ActionButton icon="add-circle-outline" label="Apply Loan" imageUrl={HomeImage1} />
+          <ActionButton icon="document-text-outline" label="My Loans" imageUrl={HomeImage2} />
+          <ActionButton icon="card-outline" label="Repay Loan" imageUrl={HomeImage3} />
+          <ActionButton icon="calculator-outline" label="Verification" imageUrl={HomeImage4} actionFunc={myActionFunc} />
+        </View>
 
-      <View style={styles.loanSummary}>
-        <Text style={styles.sectionTitle}>🧾 Latest Loan Summary</Text>
-        <Text>Loan ID: #123456</Text>
-        <Text>Status: Approved ✅</Text>
-        <Text>Amount: $5,000</Text>
-        <Text>EMI Due: $250 on 20th Apr</Text>
-      </View>
+        <View style={styles.loanSummary}>
+          <Text style={styles.sectionTitle}>🧾 Latest Loan Summary</Text>
+          <Text>Loan ID: #123456</Text>
+          <Text>Status: Approved ✅</Text>
+          <Text>Amount: $5,000</Text>
+          <Text>EMI Due: $250 on 20th Apr</Text>
+        </View>
 
-      <TouchableOpacity style={styles.notification}>
-        <Text>🔔 Notifications (1)</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.notification}>
+          <Text>🔔 Notifications (1)</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 }

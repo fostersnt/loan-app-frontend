@@ -1,3 +1,4 @@
+import appColors from "@/utils/appColors";
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -13,6 +14,9 @@ export default function RootLayout() {
           headerTitleStyle: {
             fontWeight: "bold",
           },
+          contentStyle: {
+            backgroundColor: appColors.white
+          }
         }}
       >
         <Stack.Screen

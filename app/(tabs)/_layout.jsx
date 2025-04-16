@@ -1,16 +1,50 @@
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { Tabs } from 'expo-router';
+import appColors from '@/utils/appColors';
+import { View } from 'react-native';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
+    <Tabs screenOptions={{
+      tabBarActiveTintColor: appColors.orange_two,
+      // tabBarInactiveBackgroundColor: "#EAF1FB",
+      // tabBarBackground: () => (
+      //   <View
+      //     style={{
+      //       flex: 1,
+      //       backgroundColor: '#EAF1FB',
+      //     }}
+      //   />
+      // ),
+      tabBarStyle: {
+        borderColor: appColors.white,
+        borderRadius: 30,
+        marginHorizontal: 20,
+        marginBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      tabBarIconStyle: {
+        marginTop: 20,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+      tabBarLabelStyle: {
+        // fontSize: 12,
+        marginBottom: 20,
+      },
+      tabBarItemStyle: {
+        
+      },
+      }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: '',
+          title: 'Title',
           headerShown: false,
-          tabBarIcon: ({myColor}) => <FontAwesome size={20} name="home" color={myColor} />,
+          tabBarIcon: ({color}) => <FontAwesome size={20} name="home" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -18,7 +52,7 @@ export default function TabLayout() {
         options={{
           title: 'Settings',
           headerStyle:{elevation: 0},
-          tabBarIcon: ({myColor}) => <FontAwesome size={20} name="cog" color={myColor} />,
+          tabBarIcon: ({color}) => <FontAwesome size={20} name="cog" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -26,7 +60,7 @@ export default function TabLayout() {
         options={{
           title: 'Help',
           headerStyle:{elevation: 0},
-          tabBarIcon: ({myColor}) => <Entypo size={20} name="help" color={myColor} />,
+          tabBarIcon: ({color}) => <Entypo size={20} name="help" color={color} />,
         }}
       />
     </Tabs>

@@ -11,7 +11,7 @@ export default function SliderOne() {
   const font_size = screenWidth / 12;
 
   return (
-    <View style={styles.main_container}>
+      <View style={styles.main_container}>
       <View style={styles.container_1}>
         <Text style={[styles.textStyle_1, { fontSize: font_size }]}>Fast & Secure Approval</Text>
       </View>
