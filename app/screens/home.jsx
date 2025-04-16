@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    marginVertical: 20
   },
   profileImage: {
     width: 150,
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
   balance: {
     fontSize: 16,
     marginBottom: 20,
+    textAlign: "center",
   },
   balanceAmount: {
     fontWeight: 'bold',
