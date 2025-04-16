@@ -4,10 +4,10 @@ import { useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import HomeImage1 from "../../assets/images/swiper_one_image.png";
-import HomeImage2 from "../../assets/images/swiper_two_image.png";
-import HomeImage3 from "../../assets/images/swiper_three_image.png";
-import HomeImage4 from "../../assets/images/swiper_one_image.png";
+import HomeImage1 from "../../assets/images/home_image1.png";
+import HomeImage2 from "../../assets/images/home_image2.png";
+import HomeImage3 from "../../assets/images/home_image3.png";
+import HomeImage4 from "../../assets/images/home_image4.png";
 
 export default function HomeScreen() {
   const navigate = useNavigation();
