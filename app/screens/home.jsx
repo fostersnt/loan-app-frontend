@@ -1,11 +1,12 @@
 import { Login } from '@/utils/api';
 import { useNavigation } from 'expo-router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function HomeScreen() {
   const navigate = useNavigation();
+  const [userName, setUserName] = useState(null);
 
   useEffect(()=>{
     const getData = async () => {
@@ -15,12 +16,15 @@ export default function HomeScreen() {
       const firstName = data.data['name']['first']
       const lastName = data.data['name']['last']
       const fullName = `${title} ${firstName} ${lastName}`;
+
+      setUserName(fullName);
+
       const profilePic = data.data['picture']['medium'];
       console.log("USER FULL NAME === ", fullName);
       console.log("PROFILE PICTURE === ", profilePic);
     }
     getData();
-  })
+  }, []);
 
   const myActionFunc = () => {
     navigate.navigate("screens/identity_verification");
@@ -39,7 +43,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.greeting}>👋 Hello, John!</Text>
+        <Text style={styles.greeting}>👋 Hello, {userName}!</Text>
         <Text style={styles.balance}>Your balance: <Text style={styles.balanceAmount}>$1,250.00</Text></Text>
 
         <View style={styles.actionRow}>
