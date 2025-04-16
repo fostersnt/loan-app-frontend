@@ -12,7 +12,7 @@ import HomeImage4 from "../../assets/images/home_image4.png";
 export default function HomeScreen() {
   const navigate = useNavigation();
   const deviceWidth = Dimensions.get('screen').width;
-  const imgCont = (50 / 100) * deviceWidth;
+  const imgCont = (35 / 100) * deviceWidth;
   const imgWidthAndHeight = imgCont - 20;
   const [userInfo, setUserInfo] = useState({
     name: "N/A",
@@ -74,7 +74,7 @@ export default function HomeScreen() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {/* <Text style={styles.greeting}>{userInfo.name}!</Text>
+        <Text style={styles.greeting}>Welcome, {userInfo.name}!</Text>
         <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
           <View style={[styles.profilePicContainer, { width: imgCont, height: imgCont }]}>
             {userInfo && userInfo.picture ? (
@@ -86,7 +86,7 @@ export default function HomeScreen() {
               <Text>Loading...</Text>
             )}
           </View>
-        </View> */}
+        </View>
         <View style={styles.balanceContainer}>
           <Text style={styles.balance}>Loan Balance</Text>
           <Text style={styles.balanceAmount}>GHs 1,250.00</Text>
@@ -99,7 +99,7 @@ export default function HomeScreen() {
           <ActionButton icon="calculator-outline" label="Verification" imageUrl={HomeImage4} actionFunc={myActionFunc} />
         </View>
 
-        <View style={styles.loanSummary}>
+        {/* <View style={styles.loanSummary}>
           <Text style={styles.sectionTitle}>🧾 Latest Loan Summary</Text>
           <Text>Loan ID: #123456</Text>
           <Text>Status: Approved ✅</Text>
@@ -109,7 +109,7 @@ export default function HomeScreen() {
 
         <TouchableOpacity style={styles.notification}>
           <Text>🔔 Notifications (1)</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ScrollView>
   );

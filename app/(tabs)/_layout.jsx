@@ -7,7 +7,7 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{
       tabBarShowLabel: false,
-      tabBarActiveTintColor: appColors.violet_one,
+      tabBarActiveTintColor: appColors.orange_two,
       tabBarStyle: {
         borderColor: appColors.white,
         borderRadius: 30,
