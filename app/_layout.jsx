@@ -15,7 +15,9 @@ export default function RootLayout() {
             fontWeight: "bold",
           },
           contentStyle: {
-            backgroundColor: appColors.white
+            backgroundColor: appColors.white,
+            // justifyContent: "center",
+            // alignItems: "center",
           }
         }}
       >
